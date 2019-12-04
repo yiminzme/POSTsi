@@ -1,0 +1,34 @@
+This dataset is download from https://grouplens.org/datasets/movielens/ -- [MovieLens 1M Dataset]
+official dataset readme: http://files.grouplens.org/datasets/movielens/ml-1m-README.txt
+
+Dataset Description: 
+MovieLens 1M movie ratings. Stable benchmark dataset. 1 million ratings from 6000 users on 4000 movies. Released 2/2003
+
+movielens' 1 million data is fetched from ml-1m.zip file
+
+20190601:
+[ratings.csv] userid, movieid, rating, timestamp
+	userid:		6040 unq val, [min 1, max 6040]
+	movieid:	3706 unq val, [min 1, max 3952]
+	rating:		5 unq val, [min 1, max 5]
+	timestamp:	458455 unq val, [min 956703932, max 1046454590] 
+				-- [4/25/2000, 5:05:32 PM, 2/28/2003, 10:49:50 AM] 
+				-- < 1039 days
+				-- < 149 weeks
+
+20190602:
+[20190602ratings_aggressive filtering.csv]: 460 most active users [unsorted] | 420 most rated movies [unsorted] | ratings [1,5] | weeksId [1,149]
+	import [ratings.csv] 
+	-> facet 1589 users having most ratings
+	-> facet 1132 most rated movies among the 1589 users
+	-> facet 668 users having most ratings within the 1132 movies
+	-> facet 432 most rated movies among the 668 users
+	-> facet 460 users having most ratings within the 432 movies
+	-> facet 420 most rated movies among the 460 users
+
+
+20190602:
+[20190602rating_mild filtering.csv]: 460 mildly active user [unsorted] | 471 most rated movies [unsorted] | ratings | weeksID
+	import [ratings.csv]
+	-> facet 460 mildly active user (rated 280-400 movies)
+	-> facet 471 most rated movies by the 460 users
